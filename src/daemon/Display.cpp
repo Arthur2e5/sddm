@@ -179,6 +179,8 @@ namespace SDDM {
 
         // set flags
         m_started = true;
+
+        emit started();
     }
 
     void Display::stop() {
