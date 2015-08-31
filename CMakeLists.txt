@@ -31,7 +31,7 @@ add_custom_target(dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
 # Options
 option(BUILD_MAN_PAGES "Build man pages" OFF)
 option(ENABLE_JOURNALD "Enable logging to journald" ON)
-option(ENABLE_PAM "Enable PAM support" ON)
+option(ENABLE_PAM "Enable PAM support" OFF)
 option(ENABLE_PLYMOUTH "Enable plymouth smooth transition" OFF)
 
 # Definitions
@@ -72,7 +72,7 @@ find_package(PkgConfig)
 
 # PAM
 if(ENABLE_PAM)
-    find_package(PAM REQUIRED)
+    find_package(PAM)
 
     if(PAM_FOUND)
         add_definitions(-DUSE_PAM)
